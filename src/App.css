@@ -1,38 +1,151 @@
-.App {
+.content{
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom,rgb(203, 148, 46),rgb(85, 71, 218));
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content img{
+  width: 200px;
+  border-radius: 50%;
+  padding: 7px;
+  background-color: rgb(212, 212, 212);
+  box-shadow: 5px 4px 12px rgba(0,0,0,0.6);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn{
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 7px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.4);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn::after{
+  content: '';
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background-color: blue;
+ left: 0;
+ top: 0;
+ z-index: -1;
+ transform: scaleX(0);
+ 
+ transform-origin: left;
+ transition: transform 0.4s ease;
+  border-radius: 7px;
+}
+
+.btn:active{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:active::after{
+  transform: scaleX(1);
+   transform-origin: right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnLike{
+    border-radius: 7px;
+     border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+    margin-right: 14px;
+    background-color: rgb(198, 41, 41);
+    color: white;
+    transition: all 0.3s ;
+}
+
+.btnLike:active{
+background-color: rgb(98, 0, 0);
+transform: scale(0.9);
+}
+
+.likeWrapper{
+  margin-top: 40px;
+}
+
+@media (hover: hover) {
+ .btn:hover{
+  color: white;
+}
+
+.btn:hover::after{
+  transform: scaleX(1);
+   transform-origin: right;
+}
+.btnLike:hover{
+background-color: rgb(98, 0, 0);
+transform: scale(0.9);
+}
+
+}
+
+.likeCard{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  box-shadow: 2px 3px 19px rgba(0,0,0,0.4);
+  border-radius: 10px;
+}
+
+.likeCard img{
+  width: 100px;
+  height: 100px;
+  padding: 3px;
+}
+.likeCard > div{
+  text-align: left;
+}
+.likeCard p{
+  margin: 0 0 10px;
+}
+.likeCard h2{
+  margin-bottom: 10px;
+}
+
+.likeWrapper{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3,1fr);
+}
+.likedH1{
+  margin-top: 50px;
+}
+
+@media screen and (max-width:500px) {
+  .likeWrapper{
+padding-bottom: 50px;
+
+  grid-template-columns: repeat(1,1fr);
+}
+.likeCard{
+  min-width:330px ;
+  width: 87%;
+  margin: 0 auto;
+}
+.likeCard  p{
+  line-break: anywhere;
+}
+}
+
+nav{
+  text-align: center;
+  padding: 10px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: 0 3px 19px rgba(0,0,0,0.7);
+  
 }
